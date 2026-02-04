@@ -57,13 +57,11 @@ window.onscroll = function() {
 function startCountdown(durationInHours) {
     const countdownElement = document.getElementById('countdown');
     
-    // Define a data final (exemplo: 48 horas a partir de agora)
-    let countDownDate = localStorage.getItem('countDownDate');
+    // Limpar cache antigo para garantir que o novo formato seja aplicado
+    localStorage.removeItem('countDownDate');
     
-    if (!countDownDate) {
-        countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
-        localStorage.setItem('countDownDate', countDownDate);
-    }
+    let countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
+    localStorage.setItem('countDownDate', countDownDate);
 
     const x = setInterval(function() {
         const now = new Date().getTime();
@@ -74,21 +72,22 @@ function startCountdown(durationInHours) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // REMOVIDO O PREFIXO ID
-        countdownElement.innerHTML = 
-            (days > 0 ? days + "d " : "") + 
-            (hours < 10 ? "0" + hours : hours) + ":" + 
-            (minutes < 10 ? "0" + minutes : minutes) + ":" + 
-            (seconds < 10 ? "0" + seconds : seconds);
+        // FORMATAÇÃO LIMPA SEM PREFIXO 'ID'
+        const timeString = (days > 0 ? days + "d " : "") + 
+                         (hours < 10 ? "0" + hours : hours) + ":" + 
+                         (minutes < 10 ? "0" + minutes : minutes) + ":" + 
+                         (seconds < 10 ? "0" + seconds : seconds);
+
+        countdownElement.innerText = timeString;
 
         if (distance < 0) {
             clearInterval(x);
-            countdownElement.innerHTML = "EXPIRADO";
+            countdownElement.innerText = "EXPIRADO";
         }
     }, 1000);
 }
 
-// Inicializar contador (ex: 48 horas)
+// Inicializar contador (48 horas)
 startCountdown(48);
 
 // Revelar elementos ao scroll
