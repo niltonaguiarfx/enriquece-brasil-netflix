@@ -143,7 +143,7 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 85vh;
+    height: 70vh; /* Reduzido para mostrar as aulas abaixo */
     position: relative;
     display: flex;
     align-items: center;
@@ -235,7 +235,8 @@ body {
 
 /* Shelf Row */
 .video-row {
-    padding: 60px 4% 100px;
+    padding: 20px 4% 100px; /* Reduzido o padding superior */
+    margin-top: -80px; /* Puxa as aulas para cima para aparecerem na primeira dobra */
     position: relative;
     z-index: 10;
 }
