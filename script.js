@@ -5,16 +5,16 @@ const modalDescription = document.getElementById("modalDescription");
 
 const aulas = {
     1: {
-        title: "CPL 01: A Mentalidade de Elite",
-        description: "O protocolo inicial para reprogramar sua mentalidade. Elisiane Moreira revela as chaves da Aliança da Riqueza para destravar sua prosperidade."
+        title: "AULA 01",
+        description: "A Mentalidade de Elite: O protocolo inicial para reprogramar sua mentalidade e destravar sua prosperidade."
     },
     2: {
-        title: "CPL 02: O Mapa da Riqueza",
-        description: "A arquitetura prática do enriquecimento. Aprenda como estruturar seus investimentos e finanças para uma liberdade duradoura."
+        title: "AULA 02",
+        description: "O Mapa da Riqueza: A arquitetura prática do enriquecimento e estruturação financeira."
     },
     3: {
-        title: "CPL 03: Aceleração Máxima",
-        description: "A execução final. Descubra como escalar seus resultados e consolidar sua Aliança da Riqueza com estratégias de alto impacto."
+        title: "AULA 03",
+        description: "Aceleração Máxima: Como escalar seus resultados e consolidar sua Aliança da Riqueza."
     }
 };
 
@@ -57,11 +57,12 @@ window.onscroll = function() {
 function startCountdown(durationInHours) {
     const countdownElement = document.getElementById('countdown');
     
-    // Limpar cache para garantir o novo formato
-    localStorage.removeItem('countDownDate');
+    let countDownDate = localStorage.getItem('countDownDate');
     
-    let countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
-    localStorage.setItem('countDownDate', countDownDate);
+    if (!countDownDate) {
+        countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
+        localStorage.setItem('countDownDate', countDownDate);
+    }
 
     const x = setInterval(function() {
         const now = new Date().getTime();
@@ -72,13 +73,11 @@ function startCountdown(durationInHours) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // FORMATAÇÃO LIMPA
         const timeString = (days > 0 ? days + "d " : "") + 
                          (hours < 10 ? "0" + hours : hours) + ":" + 
                          (minutes < 10 ? "0" + minutes : minutes) + ":" + 
                          (seconds < 10 ? "0" + seconds : seconds);
 
-        // Usar textContent para evitar qualquer injeção indesejada
         countdownElement.textContent = timeString;
 
         if (distance < 0) {
@@ -88,7 +87,6 @@ function startCountdown(durationInHours) {
     }, 1000);
 }
 
-// Inicializar contador
 startCountdown(48);
 
 // Revelar elementos ao scroll
@@ -99,7 +97,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('reveal');
+            entry.target.classList.add('reveal-visible');
         }
     });
 }, observerOptions);

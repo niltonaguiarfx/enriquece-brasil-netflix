@@ -37,16 +37,12 @@ body {
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    animation: revealUp 1s ease-out forwards;
+    transition: all 1s ease-out;
 }
 
-.reveal:nth-child(2) { animation-delay: 0.3s; }
-
-@keyframes revealUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .luxury-overlay {
@@ -100,7 +96,7 @@ body {
     justify-content: space-between;
     padding: 15px 4%;
     position: sticky;
-    top: 45px; /* Abaixo do banner */
+    top: 45px; 
     width: 100%;
     z-index: 1000;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
@@ -143,11 +139,11 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 80vh; /* Altura equilibrada */
+    height: 80vh;
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 4%; /* Alinhado com o header */
+    padding: 0 4%;
     text-align: left;
 }
 
@@ -236,11 +232,16 @@ body {
 
 /* Shelf Row */
 .video-row {
-    padding: 40px 4% 100px; 
-    margin-top: -100px; /* Espaçamento mais elegante e visível */
+    padding: 40px 4% 20px; 
+    margin-top: -80px;
     position: relative;
     z-index: 10;
     text-align: left;
+}
+
+.next-step-section {
+    margin-top: 0;
+    padding-bottom: 100px;
 }
 
 .row-title {
@@ -256,7 +257,7 @@ body {
     overflow-x: auto;
     padding-bottom: 20px;
     scrollbar-width: none;
-    justify-content: flex-start; /* Alinhado à esquerda */
+    justify-content: flex-start;
 }
 
 .shelf-container::-webkit-scrollbar {
@@ -271,16 +272,36 @@ body {
     cursor: pointer;
     transition: 0.4s;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    color: inherit;
 }
 
 .shelf-card:hover {
     transform: scale(1.05);
     border-color: var(--gold);
+    z-index: 20;
+}
+
+.simple-card {
+    flex: 0 0 280px;
+}
+
+.next-step-card {
+    flex: 0 0 450px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .card-media {
     position: relative;
     height: 170px;
+}
+
+.simple-card .card-media {
+    height: 158px;
+}
+
+.next-step-card .card-media {
+    height: 250px;
 }
 
 .card-media img {
@@ -312,6 +333,16 @@ body {
     color: var(--gold);
 }
 
+.next-step-btn {
+    background: var(--gold-gradient);
+    color: var(--black-pure);
+    padding: 12px 24px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
 .card-label {
     position: absolute;
     top: 10px;
@@ -324,28 +355,25 @@ body {
     font-family: var(--font-serif);
 }
 
+.card-label.premium {
+    background: linear-gradient(135deg, #8b0000 0%, #4a0404 100%);
+    color: var(--white);
+    border: 1px solid var(--gold);
+}
+
 .card-details {
     padding: 15px;
 }
 
-.card-top {
-    margin-bottom: 8px;
-    font-size: 0.75rem;
-}
-
-.relevance {
-    color: #46d369;
-    font-weight: 700;
-}
-
 .card-details h3 {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     margin-bottom: 5px;
+    color: var(--gold);
 }
 
 .card-tags {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--grey);
 }
 
@@ -453,8 +481,16 @@ body {
         font-size: 1rem;
     }
     
-    .shelf-card {
-        flex: 0 0 260px;
+    .simple-card {
+        flex: 0 0 240px;
+    }
+
+    .next-step-card {
+        flex: 0 0 300px;
+    }
+
+    .next-step-card .card-media {
+        height: 180px;
     }
 
     .countdown-label {
