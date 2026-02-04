@@ -74,6 +74,7 @@ function startCountdown(durationInHours) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        // REMOVIDO O PREFIXO ID
         countdownElement.innerHTML = 
             (days > 0 ? days + "d " : "") + 
             (hours < 10 ? "0" + hours : hours) + ":" + 
