@@ -9,21 +9,21 @@ const statusText = document.getElementById("status-text");
 const aulas = {
     1: {
         title: "CPL 01: A Mentalidade de Elite",
-        description: "O primeiro passo fundamental para reprogramar sua mente para a riqueza. Elisiane Moreira revela como identificar e eliminar os bloqueios que impedem sua prosperidade.",
+        description: "O protocolo inicial para reprogramar sua mentalidade. Elisiane Moreira revela as chaves da Aliança da Riqueza para destravar sua prosperidade.",
         progress: 33,
-        status: "Parabéns! Você iniciou sua jornada. A Aula 1 foi concluída e o processamento da sua mentalidade de elite começou."
+        status: "PROTOCOLO INICIADO: Sua mentalidade está sendo recalibrada para o nível de elite. Continue para a próxima fase do Mapa."
     },
     2: {
         title: "CPL 02: O Mapa da Riqueza",
-        description: "Nesta aula prática, você aprenderá as estratégias de investimento e o caminho exato para construir seu patrimônio de forma sólida e segura.",
+        description: "A arquitetura prática do enriquecimento. Aprenda como estruturar seus investimentos e finanças para uma liberdade duradoura.",
         progress: 66,
-        status: "Excelente progresso! Com a Aula 2 concluída, o Mapa da Riqueza foi integrado ao seu sistema. Você está pronto para investir."
+        status: "SISTEMA INTEGRADO: O Mapa da Riqueza foi carregado com sucesso. Você agora possui as coordenadas exatas para a prosperidade."
     },
     3: {
         title: "CPL 03: Aceleração Máxima",
-        description: "A aula final da jornada. Descubra como escalar seus ganhos e atingir a liberdade financeira em tempo recorde através da execução de elite.",
+        description: "A execução final. Descubra como escalar seus resultados e consolidar sua Aliança da Riqueza com estratégias de alto impacto.",
         progress: 100,
-        status: "SISTEMA COMPLETO. Você finalizou as 3 aulas do Enriquece Brasil. Agora o poder da execução de elite está em suas mãos."
+        status: "ALIANÇA CONSOLIDADA: Você completou o ciclo de treinamento Enriquece Brasil. O sistema de prosperidade está 100% operacional."
     }
 };
 
@@ -31,7 +31,7 @@ function playVideo(videoId, aulaId) {
     const aula = aulas[aulaId];
     
     // Configurar o vídeo do YouTube
-    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
     
     // Configurar informações no modal
     modalTitle.innerText = aula.title;
@@ -39,42 +39,56 @@ function playVideo(videoId, aulaId) {
     
     // Mostrar modal
     modal.style.display = "block";
-    document.body.style.overflow = "hidden"; // Impedir scroll
+    document.body.style.overflow = "hidden";
 
-    // Atualizar situação
-    updateStatus(aulaId);
+    // Atualizar Dashboard
+    updateDashboard(aulaId);
 }
 
 function closeModal() {
     modal.style.display = "none";
-    videoFrame.src = ""; // Parar o vídeo
-    document.body.style.overflow = "auto"; // Restaurar scroll
+    videoFrame.src = ""; 
+    document.body.style.overflow = "auto";
 }
 
-function updateStatus(aulaId) {
+function updateDashboard(aulaId) {
     const aula = aulas[aulaId];
     
-    // Atualizar barra de progresso
-    progressBar.style.width = aula.progress + "%";
-    progressPercent.innerText = aula.progress + "%";
+    // Animação suave da barra de progresso
+    setTimeout(() => {
+        progressBar.style.width = aula.progress + "%";
+        progressPercent.innerText = aula.progress + "%";
+    }, 100);
     
-    // Atualizar texto de situação
-    statusText.innerText = aula.status;
+    // Atualizar texto de status com efeito de digitação simples ou troca imediata
+    statusText.style.opacity = 0;
+    setTimeout(() => {
+        statusText.innerText = aula.status;
+        statusText.style.opacity = 1;
+        statusText.style.transition = "opacity 0.5s";
+    }, 500);
 }
 
-// Fechar modal ao clicar fora dele
+// Fechar modal ao clicar fora
 window.onclick = function(event) {
     if (event.target == modal) {
         closeModal();
     }
 }
 
+// Tecla ESC para fechar
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeModal();
+});
+
 // Efeito de scroll no header
 window.onscroll = function() {
     const header = document.querySelector('.header');
     if (window.pageYOffset > 50) {
-        header.style.backgroundColor = "rgba(5, 5, 5, 0.95)";
+        header.style.backgroundColor = "rgba(0, 0, 0, 0.98)";
+        header.style.padding = "10px 4%";
     } else {
-        header.style.backgroundColor = "transparent";
+        header.style.backgroundColor = "rgba(0, 0, 0, 0.95)";
+        header.style.padding = "15px 4%";
     }
 };
