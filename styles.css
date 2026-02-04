@@ -24,6 +24,31 @@ body {
     line-height: 1.6;
 }
 
+/* Transições de Entrada */
+.fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 1s ease-out forwards;
+}
+
+.reveal:nth-child(2) { animation-delay: 0.3s; }
+
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .luxury-overlay {
     position: fixed;
     top: 0;
@@ -35,22 +60,55 @@ body {
     pointer-events: none;
 }
 
+/* Contador Regressivo Banner */
+.countdown-banner {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    backdrop-filter: blur(10px);
+}
+
+.countdown-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+.countdown-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--grey);
+}
+
+#countdown {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
 /* Header */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 4%;
-    position: fixed;
-    top: 0;
+    position: sticky;
+    top: 45px; /* Abaixo do banner */
     width: 100%;
     z-index: 1000;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-    backdrop-filter: blur(10px);
+    transition: background 0.4s;
 }
 
 .main-logo {
-    height: 45px;
+    height: 40px;
     width: auto;
 }
 
@@ -85,7 +143,7 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: 85vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -105,7 +163,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%; /* Ajuste padrão */
+    object-position: center 20%;
 }
 
 .hero-vignette {
@@ -194,11 +252,11 @@ body {
     gap: 15px;
     overflow-x: auto;
     padding-bottom: 20px;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .shelf-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
 }
 
 .shelf-card {
@@ -376,7 +434,7 @@ body {
     }
     
     .hero-bg-img {
-        object-position: 70% center; /* Ajuste para mostrar o rosto no mobile */
+        object-position: 70% center;
     }
     
     .hero-vignette {
@@ -393,5 +451,13 @@ body {
     
     .shelf-card {
         flex: 0 0 260px;
+    }
+
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+
+    #countdown {
+        font-size: 1rem;
     }
 }
