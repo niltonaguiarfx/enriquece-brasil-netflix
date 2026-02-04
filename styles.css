@@ -143,11 +143,12 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 60vh; /* Altura reduzida para garantir visibilidade das aulas */
+    height: 80vh; /* Altura equilibrada */
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 6%;
+    padding: 0 4%; /* Alinhado com o header */
+    text-align: left;
 }
 
 .hero-bg-container {
@@ -235,10 +236,11 @@ body {
 
 /* Shelf Row */
 .video-row {
-    padding: 10px 4% 100px; 
-    margin-top: -150px; /* Puxado ainda mais para cima */
+    padding: 40px 4% 100px; 
+    margin-top: -100px; /* Espaçamento mais elegante e visível */
     position: relative;
     z-index: 10;
+    text-align: left;
 }
 
 .row-title {
@@ -254,6 +256,7 @@ body {
     overflow-x: auto;
     padding-bottom: 20px;
     scrollbar-width: none;
+    justify-content: flex-start; /* Alinhado à esquerda */
 }
 
 .shelf-container::-webkit-scrollbar {
