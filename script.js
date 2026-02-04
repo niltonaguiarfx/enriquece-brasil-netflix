@@ -57,7 +57,7 @@ window.onscroll = function() {
 function startCountdown(durationInHours) {
     const countdownElement = document.getElementById('countdown');
     
-    // Limpar cache antigo para garantir que o novo formato seja aplicado
+    // Limpar cache para garantir o novo formato
     localStorage.removeItem('countDownDate');
     
     let countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
@@ -72,22 +72,23 @@ function startCountdown(durationInHours) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // FORMATAÇÃO LIMPA SEM PREFIXO 'ID'
+        // FORMATAÇÃO LIMPA
         const timeString = (days > 0 ? days + "d " : "") + 
                          (hours < 10 ? "0" + hours : hours) + ":" + 
                          (minutes < 10 ? "0" + minutes : minutes) + ":" + 
                          (seconds < 10 ? "0" + seconds : seconds);
 
-        countdownElement.innerText = timeString;
+        // Usar textContent para evitar qualquer injeção indesejada
+        countdownElement.textContent = timeString;
 
         if (distance < 0) {
             clearInterval(x);
-            countdownElement.innerText = "EXPIRADO";
+            countdownElement.textContent = "EXPIRADO";
         }
     }, 1000);
 }
 
-// Inicializar contador (48 horas)
+// Inicializar contador
 startCountdown(48);
 
 // Revelar elementos ao scroll
