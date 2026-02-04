@@ -3,128 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enriquece Brasil | Experiência Exclusiva</title>
+    <title>Enriquece Brasil | Plataforma de Treinamento</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="tech-overlay"></div>
-    
     <header class="header">
         <div class="logo">
             <span class="logo-main">ENRIQUECE</span><span class="logo-sub">BRASIL</span>
         </div>
         <nav class="nav-links">
-            <a href="#aulas" class="active">AULAS</a>
-            <a href="#">COMUNIDADE</a>
-            <a href="#">MATERIAIS</a>
+            <a href="#">Início</a>
+            <a href="#">Aulas</a>
+            <a href="#">Materiais</a>
+            <a href="#">Minha Lista</a>
         </nav>
-        <div class="header-right">
-            <div class="status-badge">ONLINE</div>
-            <div class="user-profile">
-                <i class="fas fa-user-shield"></i>
-            </div>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bell"></i>
+            <div class="user-avatar">EB</div>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-image-container">
-                <img src="assets/elisiane.jpg" alt="Elisiane Moreira" class="hero-img">
-                <div class="hero-glow"></div>
-            </div>
+            <div class="hero-overlay"></div>
+            <img src="assets/elisiane.jpg" alt="Elisiane Moreira" class="hero-bg-img">
             <div class="hero-content">
-                <div class="tech-tag">PLATAFORMA EXCLUSIVA</div>
-                <h1 class="hero-title">DOMINE O SEU <br><span class="highlight">DESTINO FINANCEIRO</span></h1>
-                <p class="hero-description">Bem-vindo à nova era do Enriquece Brasil. Uma experiência imersiva projetada para transformar sua mentalidade e acelerar sua liberdade.</p>
-                <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="scrollToAulas()">
-                        <i class="fas fa-bolt"></i> COMEÇAR AGORA
-                    </button>
-                    <div class="live-indicator">
-                        <span class="dot"></span> 1.2k assistindo agora
-                    </div>
+                <div class="tech-tag">TREINAMENTO EXCLUSIVO</div>
+                <h1 class="hero-title">ENRIQUECE BRASIL</h1>
+                <p class="hero-description">A jornada definitiva para a sua liberdade financeira começa aqui. Assista às aulas exclusivas com Elisiane Moreira e transforme sua realidade.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-play" onclick="playVideo('EjiiIVmyk_g', 1)"><i class="fas fa-play"></i> Assistir Agora</button>
+                    <button class="btn btn-info"><i class="fas fa-info-circle"></i> Mais Informações</button>
                 </div>
             </div>
         </section>
 
-        <section id="aulas" class="aulas-section">
-            <div class="section-header">
-                <h2 class="section-title">CRONOGRAMA DE <span class="highlight">LIBERAÇÃO</span></h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="aulas-grid">
+        <section class="content-row">
+            <h2 class="row-title">Minha Lista: Aulas Enriquece Brasil</h2>
+            <div class="card-container">
                 <!-- Aula 1 -->
-                <div class="aula-card" onclick="playVideo('EjiiIVmyk_g', 1)">
-                    <div class="aula-thumb">
+                <div class="card" onclick="playVideo('EjiiIVmyk_g', 1)">
+                    <div class="card-thumb">
                         <img src="https://img.youtube.com/vi/EjiiIVmyk_g/maxresdefault.jpg" alt="Aula 1">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                        <div class="aula-tag">CPL 01</div>
+                        <div class="card-tag">CPL 01</div>
                     </div>
-                    <div class="aula-info">
-                        <h3>A Mentalidade de Elite</h3>
-                        <p>O primeiro passo para o enriquecimento real.</p>
-                        <div class="aula-meta">
-                            <span><i class="far fa-clock"></i> 45min</span>
-                            <span class="status-label" id="status-1">DISPONÍVEL</span>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
                         </div>
+                        <p class="card-meta">98% relevante <span>18+</span> 45min</p>
+                        <p class="card-title-text">A Mentalidade de Elite</p>
+                        <p class="card-tags">Estratégia • Mentalidade • Sucesso</p>
                     </div>
                 </div>
 
                 <!-- Aula 2 -->
-                <div class="aula-card" onclick="playVideo('7x-QTFRNOIM', 2)">
-                    <div class="aula-thumb">
+                <div class="card" onclick="playVideo('7x-QTFRNOIM', 2)">
+                    <div class="card-thumb">
                         <img src="https://img.youtube.com/vi/7x-QTFRNOIM/maxresdefault.jpg" alt="Aula 2">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                        <div class="aula-tag">CPL 02</div>
+                        <div class="card-tag">CPL 02</div>
                     </div>
-                    <div class="aula-info">
-                        <h3>O Mapa da Riqueza</h3>
-                        <p>As estratégias práticas de investimento.</p>
-                        <div class="aula-meta">
-                            <span><i class="far fa-clock"></i> 52min</span>
-                            <span class="status-label" id="status-2">DISPONÍVEL</span>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
                         </div>
+                        <p class="card-meta">95% relevante <span>18+</span> 52min</p>
+                        <p class="card-title-text">O Mapa da Riqueza</p>
+                        <p class="card-tags">Investimento • Liberdade • Foco</p>
                     </div>
                 </div>
 
                 <!-- Aula 3 -->
-                <div class="aula-card" onclick="playVideo('x2nPtC0j5bQ', 3)">
-                    <div class="aula-thumb">
+                <div class="card" onclick="playVideo('x2nPtC0j5bQ', 3)">
+                    <div class="card-thumb">
                         <img src="https://img.youtube.com/vi/x2nPtC0j5bQ/maxresdefault.jpg" alt="Aula 3">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                        <div class="aula-tag">CPL 03</div>
+                        <div class="card-tag">CPL 03</div>
                     </div>
-                    <div class="aula-info">
-                        <h3>Aceleração Máxima</h3>
-                        <p>Escalando seus resultados para o próximo nível.</p>
-                        <div class="aula-meta">
-                            <span><i class="far fa-clock"></i> 60min</span>
-                            <span class="status-label" id="status-3">DISPONÍVEL</span>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
                         </div>
+                        <p class="card-meta">99% relevante <span>18+</span> 60min</p>
+                        <p class="card-title-text">Aceleração Máxima</p>
+                        <p class="card-tags">Execução • Escala • Domínio</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="situation-section">
-            <div class="situation-card">
-                <div class="situation-icon">
-                    <i class="fas fa-microchip"></i>
+        <section class="status-section">
+            <div class="status-container">
+                <div class="status-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>SUA SITUAÇÃO ATUAL</h3>
                 </div>
-                <div class="situation-content">
-                    <h3>ANÁLISE DE SITUAÇÃO ATUAL</h3>
-                    <p id="situation-text">Aguardando início do treinamento. Selecione a Aula 1 para começar o processamento de dados.</p>
-                    <div class="tech-progress-container">
-                        <div class="tech-progress-bar">
-                            <div class="tech-progress-fill" id="progress-fill"></div>
-                        </div>
-                        <div class="progress-stats">
-                            <span id="progress-percent">0%</span>
-                            <span>SISTEMA ATIVO</span>
-                        </div>
+                <p id="status-text">Você ainda não iniciou sua jornada. Comece pela Aula 1 para desbloquear o próximo nível.</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                    <div class="progress-info">
+                        <span id="progress-percent">0%</span>
+                        <span>SISTEMA ATIVO</span>
                     </div>
                 </div>
             </div>
@@ -133,28 +120,32 @@
 
     <!-- Video Modal -->
     <div id="videoModal" class="modal">
-        <div class="modal-container">
+        <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div class="video-wrapper">
+            <div class="video-container">
                 <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="modal-info">
+            <div class="modal-details">
                 <h2 id="modalTitle">Título da Aula</h2>
-                <p id="modalDesc">Descrição da aula selecionada.</p>
+                <p id="modalDescription">Descrição da aula.</p>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">ENRIQUECE BRASIL</div>
-            <div class="footer-links">
-                <a href="#">SUPORTE</a>
-                <a href="#">PRIVACIDADE</a>
-                <a href="#">TERMOS</a>
-            </div>
-            <div class="copyright">© 2026 ENRIQUECE BRASIL - TECNOLOGIA E EDUCAÇÃO FINANCEIRA</div>
+        <div class="social-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
         </div>
+        <div class="footer-links">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Ajuda</a>
+            <a href="#">Contato</a>
+        </div>
+        <p class="copyright">&copy; 2026 Enriquece Brasil. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
