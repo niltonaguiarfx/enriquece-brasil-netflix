@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enriquece Brasil - Netflix Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ENRIQUECE BRASIL</div>
+        <nav class="nav-links">
+            <a href="#">Início</a>
+            <a href="#">Séries</a>
+            <a href="#">Filmes</a>
+            <a href="#">Bombando</a>
+            <a href="#">Minha lista</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bell"></i>
+            <div class="user-avatar">EB</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Enriquece Brasil</h1>
+                <p class="hero-description">A jornada definitiva para a sua liberdade financeira começa aqui. Assista às 3 aulas exclusivas e transforme sua realidade.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-play"><i class="fas fa-play"></i> Assistir Agora</button>
+                    <button class="btn btn-info"><i class="fas fa-info-circle"></i> Mais Informações</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-row">
+            <h2 class="row-title">Minha Lista: Aulas Exclusivas</h2>
+            <div class="card-container">
+                <div class="card" onclick="openModal(1)">
+                    <div class="card-img-placeholder">Aula 1: Mentalidade Prospera</div>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <p class="card-meta">98% relevante <span>18+</span> 45min</p>
+                        <p class="card-tags">Estratégia • Finanças • Sucesso</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal(2)">
+                    <div class="card-img-placeholder">Aula 2: O Caminho da Riqueza</div>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <p class="card-meta">95% relevante <span>18+</span> 52min</p>
+                        <p class="card-tags">Investimento • Liberdade • Foco</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openModal(3)">
+                    <div class="card-img-placeholder">Aula 3: Acelerando Resultados</div>
+                    <div class="card-info">
+                        <div class="card-controls">
+                            <i class="fas fa-play-circle"></i>
+                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <p class="card-meta">99% relevante <span>18+</span> 60min</p>
+                        <p class="card-tags">Execução • Escala • Domínio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="status-section">
+            <div class="status-container">
+                <h3>Sua Situação Atual</h3>
+                <p id="status-text">Você ainda não iniciou sua jornada. Comece pela Aula 1 para desbloquear o próximo nível.</p>
+                <div class="progress-bar">
+                    <div class="progress" id="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="video-placeholder">
+                <i class="fas fa-play fa-5x"></i>
+                <h2 id="modalTitle">Reproduzindo Aula</h2>
+            </div>
+            <div class="modal-details">
+                <h3>Sobre esta aula</h3>
+                <p id="modalDescription">Conteúdo exclusivo do Enriquece Brasil para acelerar sua jornada financeira.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Ajuda</a>
+            <a href="#">Contato</a>
+        </div>
+        <p class="copyright">&copy; 2026 Enriquece Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
