@@ -57,12 +57,11 @@ window.onscroll = function() {
 function startCountdown(durationInHours) {
     const countdownElement = document.getElementById('countdown');
     
-    let countDownDate = localStorage.getItem('countDownDate');
+    // Limpar qualquer cache antigo que possa conter o prefixo 'ID'
+    localStorage.removeItem('countDownDate');
     
-    if (!countDownDate) {
-        countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
-        localStorage.setItem('countDownDate', countDownDate);
-    }
+    let countDownDate = new Date().getTime() + (durationInHours * 60 * 60 * 1000);
+    localStorage.setItem('countDownDate', countDownDate);
 
     const x = setInterval(function() {
         const now = new Date().getTime();
@@ -73,20 +72,23 @@ function startCountdown(durationInHours) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        // FORMATAÇÃO LIMPA - SEM QUALQUER PREFIXO 'ID'
         const timeString = (days > 0 ? days + "d " : "") + 
                          (hours < 10 ? "0" + hours : hours) + ":" + 
                          (minutes < 10 ? "0" + minutes : minutes) + ":" + 
                          (seconds < 10 ? "0" + seconds : seconds);
 
-        countdownElement.textContent = timeString;
+        // Garantir que apenas o tempo seja exibido
+        countdownElement.innerText = timeString;
 
         if (distance < 0) {
             clearInterval(x);
-            countdownElement.textContent = "EXPIRADO";
+            countdownElement.innerText = "EXPIRADO";
         }
     }, 1000);
 }
 
+// Inicializar contador (48 horas)
 startCountdown(48);
 
 // Revelar elementos ao scroll
