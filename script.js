@@ -78,6 +78,7 @@ function startCountdown(durationInHours) {
                          (minutes < 10 ? "0" + minutes : minutes) + ":" + 
                          (seconds < 10 ? "0" + seconds : seconds);
 
+        // GARENTIR QUE APENAS O TEMPO SEJA EXIBIDO NO ELEMENTO
         countdownElement.textContent = timeString;
 
         if (distance < 0) {
@@ -87,7 +88,7 @@ function startCountdown(durationInHours) {
     }, 1000);
 }
 
-// Inicializar contador
+// Inicializar contador (48 horas)
 startCountdown(48);
 
 // Revelar elementos ao scroll
